@@ -14,7 +14,12 @@ namespace Kata
             if (s.Contains("//"))
             {
                 var text = s.Split("\n");
-                delimiters = new[] {text[0].Replace("//", "")};
+                var customDelimiter = text[0]
+                    .Replace("//", "")
+                    .Replace("[", "")
+                    .Replace("]", "");
+                
+                delimiters = new[] {customDelimiter};
                 s = text[1];
             }
 
