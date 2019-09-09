@@ -16,7 +16,11 @@ namespace Kata
             if (s.Contains("//"))
             {
                 var tmpInput = s.Split("\n");
-                delimiters = new[] {tmpInput[0].Replace("/", "")};
+                delimiters = new[] {tmpInput[0]
+                    .Replace("/", "")
+                    .Replace("[", "")
+                    .Replace("]", "")
+                };
                 s = tmpInput[1];
             }
             var numbers = s.Split(delimiters,StringSplitOptions.None).Select(int.Parse).Where(x=> x< 1001);
