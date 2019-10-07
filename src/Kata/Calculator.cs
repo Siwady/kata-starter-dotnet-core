@@ -21,6 +21,12 @@ namespace Kata
                 s = splittedText[1];
             }
             var numbers = s.Split(delimiters,StringSplitOptions.None).Select(int.Parse);
+            var negatives = numbers.Where(x => x < 0);
+            if (negatives.Any())
+            {
+                throw new Exception($"negatives not allowed: {negatives.First().ToString()}");
+            }
+
             if (numbers.Count() == 1)
             {
                 return numbers.First();
