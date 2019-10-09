@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Net.NetworkInformation;
 
 namespace Kata
 {
@@ -16,7 +17,10 @@ namespace Kata
             if (s.Contains("//"))
             {
                 var textsplitted = s.Split("\n");
-                var delimiter = textsplitted[0].Replace("/", "");
+                var delimiter = textsplitted[0]
+                    .Replace("/", "")
+                    .Replace("[", "")
+                    .Replace("]", "");
                 delimiters = new[] {delimiter};
                 s = textsplitted[1];
             }
